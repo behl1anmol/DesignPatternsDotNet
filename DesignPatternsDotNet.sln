@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyPattern", "StrategyPattern\StrategyPattern.csproj", "{AB12B428-DDCD-4E55-8F47-C5F95538D6A1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonPattern", "SingletonPattern\SingletonPattern.csproj", "{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{AB12B428-DDCD-4E55-8F47-C5F95538D6A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB12B428-DDCD-4E55-8F47-C5F95538D6A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB12B428-DDCD-4E55-8F47-C5F95538D6A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

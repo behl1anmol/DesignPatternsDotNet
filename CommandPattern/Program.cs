@@ -16,7 +16,7 @@ var serviceProvider = new ServiceCollection()
     .AddSingleton<Application>()
     .AddSingleton<CommandManager>()
     .AddTransient<ICommand, SaveTransactionCommand>()
-    .AddScoped<IRepository, TransactionRepository>()
+    .AddSingleton<IRepository, TransactionRepository>()
     .AddSingleton<DbContext>()
     .AddScoped<TransactionEntity>()
     

@@ -1,10 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35309.182
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyPattern", "StrategyPattern\StrategyPattern.csproj", "{AB12B428-DDCD-4E55-8F47-C5F95538D6A1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonPattern", "SingletonPattern\SingletonPattern.csproj", "{2B920A6D-45A5-4B4A-9A52-E4E7D60C9C37}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandPattern", "CommandPattern\CommandPattern.csproj", "{A8E574ED-ABB1-492B-86B4-94D04495581F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuilderPattern", "BuilderPattern\BuilderPattern.csproj", "{3BA8F22B-530C-4435-8DBB-A2FBB7EC2A8C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +29,12 @@ Global
 		{A8E574ED-ABB1-492B-86B4-94D04495581F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8E574ED-ABB1-492B-86B4-94D04495581F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8E574ED-ABB1-492B-86B4-94D04495581F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BA8F22B-530C-4435-8DBB-A2FBB7EC2A8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BA8F22B-530C-4435-8DBB-A2FBB7EC2A8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BA8F22B-530C-4435-8DBB-A2FBB7EC2A8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BA8F22B-530C-4435-8DBB-A2FBB7EC2A8C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 EndGlobal

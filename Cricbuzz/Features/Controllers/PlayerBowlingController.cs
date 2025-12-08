@@ -35,8 +35,9 @@ public class PlayerBowlingController:IPlayerBowlingController
         }
         UpdateCurrentBowlerOvers();
         
+        BowlingOrder.Enqueue(CurrentBowler);
         CurrentBowler = BowlingOrder.Dequeue();
-        while(OversBowled.ContainsKey(CurrentBowler) && OversBowled[CurrentBowler] < BowlingOversLimit)
+        while(OversBowled.ContainsKey(CurrentBowler) && OversBowled[CurrentBowler] > BowlingOversLimit)
         {
             if (BowlingOrder.Count == 0)
             {
@@ -44,7 +45,6 @@ public class PlayerBowlingController:IPlayerBowlingController
             }
             CurrentBowler = BowlingOrder.Dequeue();
         }
-        BowlingOrder.Enqueue(CurrentBowler);
         return CurrentBowler;
     }
 

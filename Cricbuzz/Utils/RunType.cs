@@ -10,7 +10,8 @@ public enum RunType
     NoRun,
     Wide,
     LegBye,
-    NoBall
+    NoBall,
+    Out
     //Penalty,
     //OverThrow
 }

@@ -14,7 +14,7 @@ public class Over : IOver
     public int OverNumber { get; set; }
     public List<IBall> Balls { get; set; }
     public bool IsCompleted { get; set; }
-
+    public event Func<IPlayer,IPlayer>?  OnPlayerOut; 
 
     public void StartOver(IPlayer bowler, ref IPlayer striker, ref IPlayer nonStriker)
     {
@@ -35,6 +35,12 @@ public class Over : IOver
             if (rType == RunType.Single || rType == RunType.Triple)
             {
                 (striker, nonStriker) = (nonStriker, striker);
+            }
+            
+            //we can also say non striker is out because isout flag is set by score updater on player
+            if (rType == RunType.Out)
+            {
+                striker = OnPlayerOut?.Invoke(striker) ?? throw new Exception("No handler for OnPlayerOut event");
             }
         }
         IsCompleted = true;

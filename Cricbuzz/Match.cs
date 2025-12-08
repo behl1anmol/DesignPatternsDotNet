@@ -29,10 +29,10 @@ public class Match : IMatch
 
     public void StartMatch()
     {
-        Console.WriteLine($"Setting Up Innings");
-        SetupInnings();
         Console.WriteLine($"Tossing the coin");
         Toss();
+        Console.WriteLine($"Setting Up Innings");
+        SetupInnings();
         Console.WriteLine($"Toss won by {TossWinner.Item1.Name}, elected to {TossWinner.Item2.ToString()}");
         // Further implementation to start the match
         foreach(var inning in Innings)
@@ -74,13 +74,13 @@ public class Match : IMatch
         {
             this.Innings = new IInning[2];
             this.Innings[0] = new Inning(battingTeam, bowlingTeam, 50);
-            this.Innings[1] = new Inning(battingTeam, bowlingTeam,50);
+            this.Innings[1] = new Inning(bowlingTeam, battingTeam,50);
         }
         else
         {
             this.Innings = new IInning[2];
             this.Innings[0] = new Inning(battingTeam, bowlingTeam, 20);
-            this.Innings[1] = new Inning(battingTeam, bowlingTeam,20);
+            this.Innings[1] = new Inning(bowlingTeam, battingTeam,20);
         }
     }
 

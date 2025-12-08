@@ -35,7 +35,10 @@ public class BowlingScorecardObserver : IScoreUpdateObserver
             case RunType.Six:
                 bowlingScorecard.RunsConceded += 6;
                 break;
+            case RunType.Out:
+                bowlingScorecard.WicketsTaken += 1;
+                break;
         }
-        
+        Console.WriteLine($"Updated bowling scorecard for {bowledBy.Person.Name}: RunsConceded={bowlingScorecard.RunsConceded}, Wides={bowlingScorecard.Wides}, NoBalls={bowlingScorecard.NoBalls}, WicketsTaken={bowlingScorecard.WicketsTaken}");
     }
 }

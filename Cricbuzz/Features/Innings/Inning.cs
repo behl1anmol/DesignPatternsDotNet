@@ -13,6 +13,7 @@ public class Inning : IInning
         for (int i = 0; i < overSize; i++)
         {
             Overs[i] = new Over(i + 1);
+            Overs[i].OnPlayerOut += OnBatsmanOutHandelled;
         }
     }
     public ITeam BattingTeam { get; }
@@ -41,5 +42,11 @@ public class Inning : IInning
         BattingTeam.OversPlayed = Overs.Count(o => o.IsCompleted);
     }
     
+    private IPlayer OnBatsmanOutHandelled(IPlayer outBatsman)
+    {
+        var newBatsman = BattingTeam.BattingController.GetNextStriker();
+        Console.WriteLine($"{outBatsman.Person.Name} is out! New batsman: {newBatsman.Person.Name}");
+        return newBatsman;
+    }
 
 }

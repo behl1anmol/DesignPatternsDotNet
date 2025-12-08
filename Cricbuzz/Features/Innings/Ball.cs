@@ -6,6 +6,8 @@ namespace Cricbuzz.Features.Innings;
 
 public class Ball : IBall
 {
+    private static readonly Random random = new Random();
+    
     public Ball(BallType bType)
     {
         BType = bType;
@@ -20,19 +22,22 @@ public class Ball : IBall
     public IPlayer BowledBy { get; set; }
     public IPlayer NonStriker { get; set; }
     public List<IScoreUpdateObserver> Scores { get; set; }
+
     //public event Action<IPlayer, RunType>? OnBallDelivered;
 
     public RunType DeliverBall(int ballNo, IPlayer bowler, IPlayer striker, IPlayer nonStriker)
     {
-        var random = new Random();
-        var randValue = random.Next(0, 8);
+        var randValue = random.Next(0, 9);
         var rType = (RunType)randValue;
+        
         
         BallNo = ballNo;
         BowledBy = bowler;
         PlayedBy = striker;
         NonStriker = nonStriker;
         RType = rType;
+        Console.WriteLine($"Ball {BallNo}: {BowledBy.Person.Name} to {PlayedBy.Person.Name} - {RType}");
+        
         NotifyScoreUpdate();
 
         return RType;

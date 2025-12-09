@@ -25,6 +25,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainOfResponsibility", "Ch
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositePattern", "CompositePattern\CompositePattern.csproj", "{23951C54-75A0-41BA-AF8D-143DA4AF5DFA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignCricbuzz", "DesignCricbuzz", "{6C8EBDB4-B01F-4136-83F2-DD9AA0D7E8B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cricbuzz", "Cricbuzz\Cricbuzz.csproj", "{C47AB45F-68A8-4BCA-9350-E404E3B956F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,11 +79,18 @@ Global
 		{23951C54-75A0-41BA-AF8D-143DA4AF5DFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23951C54-75A0-41BA-AF8D-143DA4AF5DFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23951C54-75A0-41BA-AF8D-143DA4AF5DFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {53432A37-5215-4476-917D-2CE77D24CCAD}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C47AB45F-68A8-4BCA-9350-E404E3B956F9} = {6C8EBDB4-B01F-4136-83F2-DD9AA0D7E8B6}
 	EndGlobalSection
 EndGlobal

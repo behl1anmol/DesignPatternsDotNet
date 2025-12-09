@@ -27,7 +27,7 @@ public class Ball : IBall
 
     public RunType DeliverBall(int ballNo, IPlayer bowler, IPlayer striker, IPlayer nonStriker)
     {
-        var randValue = random.Next(0, 9);
+        var randValue = random.Next(0, 10);
         var rType = (RunType)randValue;
         
         
@@ -36,7 +36,7 @@ public class Ball : IBall
         PlayedBy = striker;
         NonStriker = nonStriker;
         RType = rType;
-        Console.WriteLine($"Ball {BallNo}: {BowledBy.Person.Name} to {PlayedBy.Person.Name} - {RType}");
+        Console.WriteLine($"Ball {BallNo}: {BowledBy.Person.Name} to {PlayedBy.Person.Name} - {RType} and NonStriker is {NonStriker.Person.Name}");
         
         NotifyScoreUpdate();
 

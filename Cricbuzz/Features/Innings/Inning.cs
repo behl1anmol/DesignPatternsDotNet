@@ -1,3 +1,4 @@
+using Cricbuzz.Features.MatchTeam;
 using Cricbuzz.Interfaces;
 using Cricbuzz.Utils;
 
@@ -13,7 +14,7 @@ public class Inning : IInning
         for (int i = 0; i < overSize; i++)
         {
             Overs[i] = new Over(i + 1);
-            Overs[i].OnPlayerOut += OnBatsmanOutHandelled;
+            Overs[i].OnPlayerOut += OnBatsmanOutHandeled;
         }
     }
     public ITeam BattingTeam { get; }
@@ -35,15 +36,32 @@ public class Inning : IInning
             Console.WriteLine($"Current Striker: {striker.Person.Name}, Non-Striker: {nonStriker.Person.Name}, Bowler: {bowler.Person.Name}");
             // Play each over
             over.StartOver(bowler, ref striker, ref nonStriker);
-            
-            BattingTeam.SwapStriker();
+
+            if (BattingTeam.AllOut)
+            {
+                Console.WriteLine($"Batting Team {BattingTeam.Name} is All Out!");
+                BattingTeam.OversPlayed = Overs.Count(o => o.IsCompleted);
+                return;
+            }
+            OnOverEnd(striker, nonStriker);
             bowler = BowlingTeam.BowlingController.GetNextBowler();
         }
         BattingTeam.OversPlayed = Overs.Count(o => o.IsCompleted);
     }
-    
-    private IPlayer OnBatsmanOutHandelled(IPlayer outBatsman)
+
+    private void OnOverEnd(IPlayer striker, IPlayer nonStriker)
     {
+        BattingTeam.BattingController.SetStrikers(striker, nonStriker);
+        BattingTeam.SwapStriker();
+    }
+
+    private IPlayer OnBatsmanOutHandeled(IPlayer outBatsman)
+    {
+        if(BattingTeam.AllOut)
+        {
+            var nullablePlayer = new Player(PlayerType.NullablePlayer, new Person("N/A", 0));
+            return nullablePlayer;
+        }
         var newBatsman = BattingTeam.BattingController.GetNextStriker();
         Console.WriteLine($"{outBatsman.Person.Name} is out! New batsman: {newBatsman.Person.Name}");
         return newBatsman;

@@ -7,5 +7,6 @@ public enum PlayerType
     AllRounder,
     WicketKeeper,
     Captain,
-    ViceCaptain
+    ViceCaptain,
+    NullablePlayer
 }

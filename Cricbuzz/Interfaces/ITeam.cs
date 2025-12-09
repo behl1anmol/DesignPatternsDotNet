@@ -13,6 +13,7 @@ public interface ITeam
     int OversPlayed { get; set; }
     int Extras { get; }
     int WicketsLost { get; }
+    bool AllOut { get; }
     
     IPlayer? GetNextStriker();
     IPlayer GetNextBowler();

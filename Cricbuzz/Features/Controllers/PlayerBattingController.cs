@@ -14,7 +14,8 @@ public class PlayerBattingController : IPlayerBattingController
             //instead of throwing exception check all out
             throw new InvalidOperationException("No more batsmen available in the batting order.");
         }
-        return BattingOrder.Dequeue();
+        Striker = BattingOrder.Dequeue();
+        return Striker;
     }
 
     public IPlayer SwapStriker()
@@ -38,5 +39,11 @@ public class PlayerBattingController : IPlayerBattingController
         BattingOrder = new Queue<IPlayer>(players);
         Striker = BattingOrder.Dequeue();
         NonStriker = BattingOrder.Dequeue();
+    }
+    
+    public void SetStrikers(IPlayer striker, IPlayer nonStriker)
+    {
+        Striker = striker;
+        NonStriker = nonStriker;
     }
 }

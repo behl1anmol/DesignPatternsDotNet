@@ -1,3 +1,4 @@
+using System.Collections.Immutable;
 using Cricbuzz.Features.Controllers;
 using Cricbuzz.Interfaces;
 using Cricbuzz.Utils;
@@ -13,46 +14,11 @@ public class Team : ITeam
     public List<IPlayer> BenchPlayers { get; set; }
     public IPlayerBattingController BattingController { get; set; }
     public IPlayerBowlingController BowlingController { get; set; }
-    public int Extras
-    {
-        get
-        {
-            int extras = 0;
-            foreach (var player in PlayingEleven)
-            {
-                extras += player.PlayerBowlingScorecard.Extras;
-                
-            }
-            return extras;
-        }
-    }
-
-    public int TotalRuns
-    {
-        get
-        {
-            int totalRuns = 0;
-            foreach (var player in PlayingEleven)
-            {
-                totalRuns += player.PlayerBattingScorecard.Runs;
-            }
-            return totalRuns;
-        }
-    }
-    
-    public int WicketsLost
-    {
-        get
-        {
-            int wicketsTaken = 0;
-            foreach (var player in PlayingEleven)
-            {
-                wicketsTaken += player.PlayerBowlingScorecard.WicketsTaken;
-            }
-            return wicketsTaken;
-        }
-    }
+    public int Extras => PlayingEleven.Sum(player => player.PlayerBowlingScorecard.Extras);
+    public int TotalRuns => PlayingEleven.Sum(player => player.PlayerBattingScorecard.Runs);
+    public int WicketsLost => PlayingEleven.Sum(player => player.PlayerBattingScorecard.IsOut ? 1 : 0);
     public int OversPlayed { get; set; }
+    public bool AllOut => WicketsLost == 10;
 
     public Team(string name, string country, int ranking)
     {

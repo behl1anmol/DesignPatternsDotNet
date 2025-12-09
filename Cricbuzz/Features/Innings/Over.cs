@@ -40,7 +40,12 @@ public class Over : IOver
             //we can also say non striker is out because isout flag is set by score updater on player
             if (rType == RunType.Out)
             {
-                striker = OnPlayerOut?.Invoke(striker) ?? throw new Exception("No handler for OnPlayerOut event");
+                striker = OnPlayerOut?.Invoke(striker)?? throw new Exception("No handler for OnPlayerOut event");
+                if (striker.Type == PlayerType.NullablePlayer)
+                {
+                    IsCompleted = true;
+                    return;
+                }
             }
         }
         IsCompleted = true;

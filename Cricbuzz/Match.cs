@@ -1,5 +1,4 @@
 using Cricbuzz.Features.Innings;
-using Cricbuzz.Features.MatchTeam;
 using Cricbuzz.Interfaces;
 using Cricbuzz.Utils;
 using MatchType = Cricbuzz.Utils.MatchType;
@@ -17,7 +16,7 @@ public class Match : IMatch
     public ITeam? Winner { get; set; } //can be a tiw therefore nullable
     public (ITeam, InningChoice) TossWinner { get; set; }
 
-    public void RegisterMatch(ITeam a, ITeam b, DateTime matchDate, string venue, MatchType matchType)
+    public Match(ITeam a, ITeam b, DateTime matchDate, string venue, MatchType matchType)
     {
         TeamA = a;
         TeamB = b;

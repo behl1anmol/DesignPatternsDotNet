@@ -14,6 +14,6 @@ public interface IMatch
     ITeam? Winner { get; }
     (ITeam,InningChoice)  TossWinner { get; }
 
-    void RegisterMatch(ITeam a, ITeam b, DateTime matchDate, string venue, MatchType matchType);
+    //void RegisterMatch(ITeam a, ITeam b, DateTime matchDate, string venue, MatchType matchType);
     void StartMatch();
 }

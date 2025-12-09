@@ -4,11 +4,11 @@ namespace Cricbuzz.Features.Controllers;
 
 public class PlayerBowlingController:IPlayerBowlingController
 {
-    public PlayerBowlingController()
+    public PlayerBowlingController(int bowlingOversLimit = 10)
     {
         BowlingOrder = new Queue<IPlayer>();
         OversBowled = new Dictionary<IPlayer, int>();
-        BowlingOversLimit = 10;
+        BowlingOversLimit = bowlingOversLimit;
     }
     public Queue<IPlayer> BowlingOrder { get; set; }
     public IPlayer CurrentBowler { get; set; }

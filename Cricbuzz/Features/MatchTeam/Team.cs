@@ -2,6 +2,7 @@ using System.Collections.Immutable;
 using Cricbuzz.Features.Controllers;
 using Cricbuzz.Interfaces;
 using Cricbuzz.Utils;
+using MatchType = Cricbuzz.Utils.MatchType;
 
 namespace Cricbuzz.Features.MatchTeam;
 
@@ -20,7 +21,7 @@ public class Team : ITeam
     public int OversPlayed { get; set; }
     public bool AllOut => WicketsLost == 10;
 
-    public Team(string name, string country, int ranking)
+    public Team(string name, string country, int ranking, int bowlingOversLimit)
     {
         Name = name;
         Country = country;
@@ -28,7 +29,7 @@ public class Team : ITeam
         PlayingEleven = new Queue<IPlayer>();
         BenchPlayers = new List<IPlayer>();
         BattingController = new PlayerBattingController();
-        BowlingController = new PlayerBowlingController();
+        BowlingController = new PlayerBowlingController(bowlingOversLimit);
         
     }
     

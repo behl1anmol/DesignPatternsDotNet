@@ -4,10 +4,10 @@ using Cricbuzz.Interfaces;
 using Cricbuzz.Utils;
 using MatchType = Cricbuzz.Utils.MatchType;
 
-(ITeam TeamA, ITeam TeamB) SetupTeams()
+(ITeam TeamA, ITeam TeamB) SetupTeams(MatchType type)
 {
-    var teamA = new Team("TeamA", "CountryA", 1);
-    var teamB = new Team("TeamB", "CountryB", 2);
+    var teamA = new Team("TeamA", "CountryA", 1, type==MatchType.ODI ?10:4);
+    var teamB = new Team("TeamB", "CountryB", 2, type==MatchType.ODI ?10:4);
     for (int i = 1; i <= 11; i++)
     {
         var playerA = new Player(GetPlayerType(i), new Person($"A_PlayerName_{i}", 25 + i));
@@ -43,9 +43,11 @@ PlayerType GetPlayerType(int i)
     else
         return PlayerType.Bowler;
 }
-
-var (squadA, squadB) = SetupTeams();
+var random = new Random();
+var matchType = random.Next(0, 2) == 0 ? MatchType.ODI : MatchType.T20;
+Console.WriteLine($"Match Type Selected: {matchType}");
+var (squadA, squadB) = SetupTeams(matchType);
 Console.WriteLine($"Team A: {squadA.Name}, Country: {squadA.Country}, Ranking: {squadA.Ranking}");
 Console.WriteLine($"Team B: {squadB.Name}, Country: {squadB.Country}, Ranking: {squadB.Ranking}");
-var match = new Cricbuzz.Match(squadA, squadB, DateTime.Now, "Stadium XYZ", MatchType.ODI);
+var match = new Cricbuzz.Match(squadA, squadB, DateTime.Now, "Stadium XYZ", matchType);
 match.StartMatch();

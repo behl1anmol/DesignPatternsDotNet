@@ -36,18 +36,42 @@ public class Ball : IBall
         PlayedBy = striker;
         NonStriker = nonStriker;
         RType = rType;
-        Console.WriteLine($"Ball {BallNo}: {BowledBy.Person.Name} to {PlayedBy.Person.Name} - {RType} and NonStriker is {NonStriker.Person.Name}");
         
+        Display();
         NotifyScoreUpdate();
 
         return RType;
     }
 
+    private void Display()
+    {
+        var previousColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Blue;
+        
+        if (BallNo == 1)
+        {
+            Console.WriteLine("{0,-6} | {1,-20} | {2,-20} | {3,-7} | {4,-20}", "Ball", "Bowler", "Batsman", "Runs", "NonStriker");
+            Console.WriteLine(new string('-', 80));
+        }
+    
+        Console.WriteLine("{0,-6} | {1,-20} | {2,-20} | {3,-7} | {4,-20}",
+            $"#{BallNo}",
+            BowledBy.Person.Name,
+            PlayedBy.Person.Name,
+            RType,
+            NonStriker.Person.Name);
+    
+        Console.ForegroundColor = previousColor;
+    }
+
     public void NotifyScoreUpdate()
     {
+        var previousColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.Red;
         foreach (var score in Scores)
         {
             score.UpdateScore(PlayedBy, BowledBy, RType);
         }
+        Console.ForegroundColor = previousColor;
     }
 }

@@ -29,6 +29,8 @@ public class Match : IMatch
 
     public void StartMatch()
     {
+        var previousColor = ChangeColor();
+        Console.WriteLine($"Match between {TeamA.Name} and {TeamB.Name} at {Venue} on {MatchDate.ToShortDateString()}");
         Console.WriteLine($"Tossing the coin");
         Toss();
         Console.WriteLine($"Setting Up Innings");
@@ -37,7 +39,7 @@ public class Match : IMatch
         // Further implementation to start the match
         foreach(var inning in Innings)
         {
-            Console.WriteLine($"Starting inning: {inning.BattingTeam.Name} vs {inning.BowlingTeam.Name}");
+            Console.WriteLine($"Starting inning: Batting Team: {inning.BattingTeam.Name} | Bowling Team: {inning.BowlingTeam.Name}");
             inning.StartInning();
             //print the team score, overs played, wickets lost
             Console.WriteLine($"{inning.BattingTeam.Name} scored {inning.BattingTeam.TotalRuns} runs for {inning.BattingTeam.WicketsLost} wickets in {inning.BattingTeam.OversPlayed} overs.");
@@ -64,6 +66,19 @@ public class Match : IMatch
         {
             Console.WriteLine("Match is a tie");
         }
+        RevertColor(previousColor);
+    }
+
+    private static void RevertColor(ConsoleColor previousColor)
+    {
+        Console.ForegroundColor = previousColor;
+    }
+
+    private static ConsoleColor ChangeColor()
+    {
+        var previousColor = Console.ForegroundColor;
+        Console.ForegroundColor = ConsoleColor.DarkMagenta;
+        return previousColor;
     }
 
     private void SetupInnings()

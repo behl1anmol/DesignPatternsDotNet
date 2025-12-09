@@ -39,6 +39,11 @@ public class BowlingScorecardObserver : IScoreUpdateObserver
                 bowlingScorecard.WicketsTaken += 1;
                 break;
         }
-        Console.WriteLine($"Updated bowling scorecard for {bowledBy.Person.Name}: RunsConceded={bowlingScorecard.RunsConceded}, Wides={bowlingScorecard.Wides}, NoBalls={bowlingScorecard.NoBalls}, WicketsTaken={bowlingScorecard.WicketsTaken}");
+        Console.WriteLine("{0,-20} | R:{1,3}  Wd:{2,2}  Nb:{3,2}  W:{4,2}",
+            bowledBy.Person.Name,
+            bowlingScorecard.RunsConceded,
+            bowlingScorecard.Wides,
+            bowlingScorecard.NoBalls,
+            bowlingScorecard.WicketsTaken);
     }
 }

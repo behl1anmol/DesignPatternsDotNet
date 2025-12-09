@@ -26,9 +26,11 @@ public class Inning : IInning
         var bowler = BowlingTeam.BowlingController.CurrentBowler;
         // Implementation to start the inning
         //need to handle when batsman gets out and bowler changes??
+        Console.WriteLine("---------------------------------------------------------------------------------");
         Console.WriteLine("Starting Overs for " + BattingTeam.Name);
         foreach(var over in Overs)
         {
+            Console.WriteLine("---------------------------------------------------------------------------------");
             Console.WriteLine($"Starting Over {over.OverNumber}");
             var striker = BattingTeam.BattingController.Striker;
             var nonStriker = BattingTeam.BattingController.NonStriker;

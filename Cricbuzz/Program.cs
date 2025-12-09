@@ -48,5 +48,5 @@ var (teamA, teamB) = SetupTeams();
 Console.WriteLine($"Team A: {teamA.Name}, Country: {teamA.Country}, Ranking: {teamA.Ranking}");
 Console.WriteLine($"Team B: {teamB.Name}, Country: {teamB.Country}, Ranking: {teamB.Ranking}");
 var match = new Cricbuzz.Match();
-match.RegisterMatch(teamA, teamB, new DateTime(), "Stadium XYZ", MatchType.ODI);
+match.RegisterMatch(teamA, teamB, DateTime.Now, "Stadium XYZ", MatchType.ODI);
 match.StartMatch();

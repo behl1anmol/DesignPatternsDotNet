@@ -33,6 +33,12 @@ public class BattingScorecardObserver : IScoreUpdateObserver
                 battingScorecard.IsOut = true;
                 break;
         }
-        Console.WriteLine($"Updated batting scorecard for {playedBy.Person.Name}: Runs={battingScorecard.Runs}, BallsFaced={battingScorecard.BallsFaced}, Fours={battingScorecard.Fours}, Sixes={battingScorecard.Sixes}, IsOut={battingScorecard.IsOut}");
+        Console.WriteLine("{0,-20} | R:{1,3}  B:{2,3}  4s:{3,2}  6s:{4,2}  Out:{5}",
+            playedBy.Person.Name,
+            battingScorecard.Runs,
+            battingScorecard.BallsFaced,
+            battingScorecard.Fours,
+            battingScorecard.Sixes,
+            battingScorecard.IsOut ? "Y" : "N");
     }
 }

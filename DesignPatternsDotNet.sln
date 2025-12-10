@@ -29,6 +29,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignCricbuzz", "DesignCri
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cricbuzz", "Cricbuzz\Cricbuzz.csproj", "{C47AB45F-68A8-4BCA-9350-E404E3B956F9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DesignTicTacToe", "DesignTicTacToe", "{F77560B9-C2EB-4FD7-A7A5-1DBEDC8BF505}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicTacToe", "TicTacToe\TicTacToe.csproj", "{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C47AB45F-68A8-4BCA-9350-E404E3B956F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,5 +100,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{C47AB45F-68A8-4BCA-9350-E404E3B956F9} = {6C8EBDB4-B01F-4136-83F2-DD9AA0D7E8B6}
+		{D07ACABA-5DE4-4D10-A2B1-0D616F4483F6} = {F77560B9-C2EB-4FD7-A7A5-1DBEDC8BF505}
 	EndGlobalSection
 EndGlobal
